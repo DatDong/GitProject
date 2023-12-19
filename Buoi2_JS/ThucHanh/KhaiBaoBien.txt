@@ -1,0 +1,5 @@
+Mục tiêu
+    Luyện tập làm việc với biến và toán tử.
+Hướng dẫn
+    Để hoàn thành bài thực hành, học viên cần:
+        Đưa mã nguồn lên GitHub
