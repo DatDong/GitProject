@@ -33,4 +33,8 @@ function convertCurrency() {
         return;
     }
     console.log("Convert Currency" , convertAmount);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1d940c5af1b3e07ab47754f1c4a8ec11d299b727
