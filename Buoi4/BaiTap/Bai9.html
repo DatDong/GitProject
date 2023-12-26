@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luyện tập cấu trúc điều kiện 02</title>
+  <style>
+    button {
+      font-size: 16px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  function bai1() {
+    let doC = parseFloat(prompt("Nhập nhiệt độ C:"));
+    let doF = doC * 9/5 + 32;
+    alert(`Nhiệt độ ${doC}°C tương đương với ${doF}°F`);
+  }
+
+  function bai2() {
+    let met = parseFloat(prompt("Nhập độ dài mét:"));
+    let feet = met * 3.2808;
+    alert(`Độ dài ${met} mét tương đương với ${feet} feet`);
+  }
+
+  function bai3() {
+    let a = parseFloat(prompt("Nhập cạnh hình vuông a:"));
+    let dienTich = a * a;
+    alert(`Diện tích hình vuông là: ${dienTich}`);
+  }
+
+  function bai4() {
+    let a = parseFloat(prompt("Nhập chiều dài hình chữ nhật a:"));
+    let b = parseFloat(prompt("Nhập chiều rộng hình chữ nhật b:"));
+    let dienTich = a * b;
+    alert(`Diện tích hình chữ nhật là: ${dienTich}`);
+  }
+
+  function bai5() {
+    let a = parseFloat(prompt("Nhập cạnh góc vuông a:"));
+    let b = parseFloat(prompt("Nhập cạnh góc vuông b:"));
+    let dienTich = (a * b) / 2;
+    alert(`Diện tích tam giác vuông là: ${dienTich}`);
+  }
+
+  function bai6() {
+    let a = parseFloat(prompt("Nhập hệ số a:"));
+    let b = parseFloat(prompt("Nhập hệ số b:"));
+    let x;
+    
+    if (a === 0) {
+      x = (b === 0) ? "Phương trình vô số nghiệm" : "Phương trình vô nghiệm";
+    } else {
+      x = -b / a;
+    }
+
+    alert(`Nghiệm của phương trình là: ${x}`);
+  }
+
+  function bai7() {
+    let a = parseFloat(prompt("Nhập hệ số a:"));
+    let b = parseFloat(prompt("Nhập hệ số b:"));
+    let c = parseFloat(prompt("Nhập hệ số c:"));
+    
+    let delta = b * b - 4 * a * c;
+
+    if (delta < 0) {
+      alert("Phương trình vô nghiệm");
+    } else if (delta === 0) {
+      let x = -b / (2 * a);
+      alert(`Phương trình có nghiệm kép x = ${x}`);
+    } else {
+      let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+      let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+      alert(`Phương trình có hai nghiệm phân biệt: x1 = ${x1}, x2 = ${x2}`);
+    }
+  }
+
+  function bai8() {
+    let tuoi = parseInt(prompt("Nhập tuổi:"));
+    let ketQua = (tuoi > 0 && tuoi < 120) ? "Tuổi hợp lệ" : "Tuổi không hợp lệ";
+    alert(ketQua);
+  }
+
+  function bai9() {
+    let a = parseFloat(prompt("Nhập cạnh a:"));
+    let b = parseFloat(prompt("Nhập cạnh b:"));
+    let c = parseFloat(prompt("Nhập cạnh c:"));
+
+    let ketQua = (a > 0 && b > 0 && c > 0 && a + b > c && b + c > a && a + c > b)
+      ? "Ba số là độ dài các cạnh của một tam giác"
+      : "Ba số không phải là độ dài các cạnh của một tam giác";
+
+    alert(ketQua);
+  }
+
+  function bai10() {
+    let soDien = parseFloat(prompt("Nhập số điện sử dụng (kWh):"));
+    let giaDien = 0;
+
+    if (soDien <= 50) {
+      giaDien = soDien * 1500;
+    } else if (soDien <= 100) {
+      giaDien = 50 * 1500 + (soDien - 50) * 2000;
+    } else if (soDien <= 200) {
+      giaDien = 50 * 1500 + 50 * 2000 + (soDien - 100) * 2500;
+    } else {
+      giaDien = 50 * 1500 + 50 * 2000 + 100 * 2500 + (soDien - 200) * 3000;
+    }
+
+    alert(`Cước điện bạn phải trả là: ${giaDien} VND`);
+  }
+
+  function bai11() {
+    let thuNhap = parseFloat(prompt("Nhập thu nhập cá nhân:"));
+    let thue = 0;
+
+    if (thuNhap <= 5000000) {
+      thue = thuNhap * 0.05;
+    } else if (thuNhap <= 10000000) {
+      thue = 5000000 * 0.05 + (thuNhap - 5000000) * 0.1;
+    } else {
+      thue = 5000000 * 0.05 + 5000000 * 0.1 + (thuNhap - 10000000) * 0.15;
+    }
+
+    alert(`Số tiền thuế thu nhập cá nhân bạn phải trả là: ${thue} VND`);
+  }
+
+  function bai12() {
+    let soTienBanDau = parseFloat(prompt("Nhập số tiền ban đầu (VND):"));
+    let soThangChoVay = parseInt(prompt("Nhập số tháng cho vay:"));
+    let laiXuatHangThang = parseFloat(prompt("Nhập lãi xuất hàng tháng (%):"));
+
+    let tongTien = soTienBanDau;
+    
+    for (let i = 0; i < soThangChoVay; i++) {
+      tongTien += tongTien * (laiXuatHangThang / 100);
+    }
+
+    let laiSuat = tongTien - soTienBanDau;
+
+    alert(`Lãi suất bạn nhận được sau ${soThangChoVay} tháng là: ${laiSuat} VND`);
+  }
+</script>
+
+<h1>Luyện tập cấu trúc điều kiện 02</h1>
+
+<button onclick="bai1()">Bài 1: Chuyển độ C sang độ F</button>
+<button onclick="bai2()">Bài 2: Chuyển mét sang feet</button>
+<button onclick="bai3()">Bài 3: Diện tích hình vuông</button>
+<button onclick="bai4()">Bài 4: Diện tích hình chữ nhật</button>
+<button onclick="bai5()">Bài 5: Diện tích tam giác vuông</button>
+<button onclick="bai6()">Bài 6: Giải phương trình bậc 1</button>
+<button onclick="bai7()">Bài 7: Giải phương trình bậc 2</button>
+<button onclick="bai8()">Bài 8: Kiểm tra tuổi</button>
+<button onclick="bai9()">Bài 9: Kiểm tra tam giác</button>
+<button onclick="bai10()">Bài 10: Tính giá điện</button>
+<button onclick="bai11()">Bài 11: Tính thuế thu nhập cá nhân</button>
+<button onclick="bai12()">Bài 12: Tính lãi ngân hàng</button>
+
+</body>
+</html>
