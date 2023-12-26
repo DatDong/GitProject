@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luyện tập</title>
+</head>
+<body>
+
+<button onclick="bai1()">Bài 1: Đếm đến 100</button>
+<button onclick="bai2()">Bài 2: Kiểm tra nhiệt độ</button>
+<button onclick="bai3()">Bài 3: Xuất 20 số Fibonacci đầu tiên</button>
+<div id="fibonacci-output"></div>
+<button onclick="bai4()">Bài 4: Số Fibonacci chia hết cho 5 đầu tiên</button>
+<div id="fibonacci-multiple-of-5"></div>
+<button onclick="bai5()">Bài 5: Tính tổng 20 số Fibonacci đầu tiên</button>
+<div id="fibonacci-sum"></div>
+<button onclick="bai6()">Bài 6: Tính tổng 30 số chia hết cho 7 đầu tiên</button>
+<div id="sum-multiple-of-7"></div>
+<button onclick="bai7()">Bài 7: In Fizz, Buzz, FizzBuzz</button>
+<div id="fizz-buzz-output"></div>
+<button onclick="startGame()">Bài 8: Game đoán số</button>
+
+<script>
+  // Bài 1
+  function bai1() {
+    for (let i = 1; i <= 100; i++) {
+      if (i === 99) {
+        alert("Đã hoàn thành!");
+        break;
+      }
+    }
+  }
+
+  // Bài 2
+  function bai2() {
+    let temperature = parseInt(prompt("Nhập nhiệt độ hiện tại:"));
+
+    if (temperature > 100) {
+      alert("Giảm nhiệt độ!");
+    } else if (temperature < 20) {
+      alert("Tăng nhiệt độ!");
+    }
+  }
+
+  // Bài 3
+  function bai3() {
+    let fibonacciNumbers = [0, 1];
+    let outputDiv = document.getElementById('fibonacci-output');
+
+    for (let i = 2; i < 20; i++) {
+      fibonacciNumbers[i] = fibonacciNumbers[i - 1] + fibonacciNumbers[i - 2];
+    }
+    outputDiv.textContent = fibonacciNumbers.join(', ');
+  }
+
+  // Bài 4
+  function bai4() {
+    let fibonacciNumber = 0;
+    let i = 0;
+    let multipleOf5 = [];
+
+    while (multipleOf5.length < 5) {
+      if (fibonacciNumber % 5 === 0) {
+        multipleOf5.push(fibonacciNumber);
+      }
+      i++;
+      fibonacciNumber = getFibonacciNumber(i);
+    }
+
+    let outputDiv = document.getElementById('fibonacci-multiple-of-5');
+    outputDiv.textContent = multipleOf5.join(', ');
+  }
+
+  // Bài 5
+  function bai5() {
+    let sum = 0;
+    let count = 0;
+
+    for (let i = 0; count < 20; i++) {
+      let fibonacciNumber = getFibonacciNumber(i);
+      sum += fibonacciNumber;
+      count++;
+    }
+
+    let outputDiv = document.getElementById('fibonacci-sum');
+    outputDiv.textContent = sum;
+  }
+
+  // Bài 6
+  function bai6() {
+    let sum = 0;
+    let count = 0;
+    let i = 0;
+
+    while (count < 30) {
+      if (i % 7 === 0) {
+        sum += i;
+        count++;
+      }
+      i++;
+    }
+
+    let outputDiv = document.getElementById('sum-multiple-of-7');
+    outputDiv.textContent = sum;
+  }
+
+  // Bài 7
+  function bai7() {
+    let fizzBuzzOutput = '';
+    for (let i = 1; i <= 100; i++) {
+      if (i % 3 === 0 && i % 5 === 0) {
+        fizzBuzzOutput += 'FizzBuzz, ';
+      } else if (i % 3 === 0) {
+        fizzBuzzOutput += 'Fizz, ';
+      } else if (i % 5 === 0) {
+        fizzBuzzOutput += 'Buzz, ';
+      } else {
+        fizzBuzzOutput += i + ', ';
+      }
+    }
+
+    let outputDiv = document.getElementById('fizz-buzz-output');
+    outputDiv.textContent = fizzBuzzOutput.slice(0, -2);  // Remove the last comma and space
+  }
+
+  // Helper function for Fibonacci
+  function getFibonacciNumber(n) {
+    if (n <= 1) return n;
+    return getFibonacciNumber(n - 1) + getFibonacciNumber(n - 2);
+  }
+
+  // Bài 8
+  function startGame() {
+    let minRange = parseInt(prompt("Nhập giá trị nhỏ nhất trong khoảng đoán số"));
+    let maxRange = parseInt(prompt("Nhập giá trị lớn nhất trong khoảng đoán số"));
+
+    if (isNaN(minRange) || isNaN(maxRange) || minRange >= maxRange) {
+      alert("Vui lòng nhập đúng khoảng đoán số.");
+      return;
+    }
+
+    let randomNumber = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+    let attempts = 0;
+
+    while (attempts < 3) {
+      let userGuess = parseInt(prompt("Nhập số bạn đoán"));
+
+      if (isNaN(userGuess)) {
+        alert("Vui lòng nhập một số.");
+        continue;
+      }
+
+      if (userGuess === randomNumber) {
+        alert("Chúc mừng! Bạn đã đoán đúng.");
+        break;
+      } else if (userGuess > randomNumber) {
+        alert("Số bạn đoán lớn hơn số cần đoán.");
+      } else {
+        alert("Số bạn đoán bé hơn số cần đoán.");
+      }
+
+      attempts++;
+    }
+
+    if (attempts === 3) {
+      alert(`Bạn đã hết số lần đoán. Số đúng là: ${randomNumber}`);
+    }
+  }
+</script>
+
+</body>
+</html>

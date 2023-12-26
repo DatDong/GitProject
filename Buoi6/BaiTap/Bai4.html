@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luyện tập</title>
+</head>
+<body>
+
+<button onclick="bai1()">Bài 1</button>
+<div id="output1"></div>
+<button onclick="bai2()">Bài 2</button>
+<div id="output2"></div>
+<button onclick="bai3()">Bài 3</button>
+<div id="output3"></div>
+<button onclick="bai4()">Bài 4</button>
+<div id="output4"></div>
+<button onclick="bai5()">Bài 5</button>
+<div id="output5"></div>
+<button onclick="bai6()">Bài 6</button>
+<div id="output6"></div>
+
+<script>
+  function bai1() {
+    let fibonacciNumbers = [0, 1];
+    for (let i = 2; i <= 100; i++) {
+      fibonacciNumbers[i] = fibonacciNumbers[i - 1] + fibonacciNumbers[i - 2];
+    }
+    document.getElementById("output1").innerHTML = `Dãy Fibonacci: ${fibonacciNumbers.join(', ')}`;
+  }
+
+  function bai2() {
+    let n = parseInt(prompt("Nhập số nguyên dương để tính giai thừa:"));
+    let giaiThua = 1;
+
+    for (let i = 1; i <= n; i++) {
+      giaiThua *= i;
+    }
+
+    document.getElementById("output2").innerHTML = `Giai thừa của ${n} là: ${giaiThua}`;
+  }
+
+  function bai3() {
+    let n = parseInt(prompt("Nhập chiều cao của tam giác vuông:"));
+    let outputDiv = document.getElementById("output3");
+    let result = '';
+
+    for (let i = 1; i <= n; i++) {
+      for (let j = 1; j <= i; j++) {
+        result += '* ';
+      }
+      result += '<br/>';
+    }
+
+    outputDiv.innerHTML = result;
+  }
+
+  function bai4() {
+    let width = parseInt(prompt("Nhập chiều rộng của hình chữ nhật:"));
+    let height = parseInt(prompt("Nhập chiều cao của hình chữ nhật:"));
+    let outputDiv = document.getElementById("output4");
+    let result = '';
+
+    for (let i = 1; i <= height; i++) {
+      for (let j = 1; j <= width; j++) {
+        result += '* ';
+      }
+      result += '<br/>';
+    }
+
+    outputDiv.innerHTML = result;
+  }
+
+  function bai5() {
+    let soTienBanDau = parseFloat(prompt("Nhập số tiền ban đầu:"));
+    let soThang = parseInt(prompt("Nhập số tháng cho vay:"));
+    let laiXuatHangThang = parseFloat(prompt("Nhập lãi xuất hàng tháng (%):")) / 100;
+    let outputDiv = document.getElementById("output5");
+
+    let soTienLai = 0;
+    for (let i = 1; i <= soThang; i++) {
+      soTienLai += soTienBanDau * laiXuatHangThang;
+    }
+
+    outputDiv.innerHTML = `Số tiền lãi sau ${soThang} tháng là: ${soTienLai.toFixed(2)}`;
+  }
+
+  function bai6() {
+    let n = 5;
+    let outputDiv = document.getElementById("output6");
+    let result = '';
+
+    for (let i = 1; i <= n; i++) {
+      for (let j = 1; j <= i; j++) {
+        result += '* ';
+      }
+      result += '<br/>';
+    }
+
+    for (let i = n - 1; i >= 1; i--) {
+      for (let j = 1; j <= i; j++) {
+        result += '* ';
+      }
+      result += '<br/>';
+    }
+
+    outputDiv.innerHTML = result;
+  }
+</script>
+
+</body>
+</html>
