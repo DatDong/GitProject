@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 2</title>
+</head>
+<body>
+    <h1>Sample Screen:</h1>
+    <input type="text" id="txtValue"/>
+    <input type="button" value="Add" id="btnAdd" onclick="add_element_to_array()" />
+    <input type="button" value="Display" id="btnDisplay" onclick="display_array()" /> 
+    <div id="result"></div>
+    <hr>
+    // Cách 1 
+    <!-- <script>
+        const arrayS= [];
+        function add_element_to_array(){
+            var getValue = document.getElementById("txtValue").value;
+            arrayS.push(getValue);
+            console.log("@@@arrayS",arrayS);
+            console.log("@@@getValue", getValue);
+            document.getElementById("txtValue").value="";
+        }
+        function display_array() {
+            for(let i=0;i<arrayS.length;i++){
+                console.log(`Gia tri thu ${i} co gia tri bang : ${arrayS[i]}`);
+            }
+        }
+    </script> -->
+    
+    // Cách 2
+    <script>
+        let x =0;
+        let array = Array();
+        function add_element_to_array(){
+            array[x] = document.getElementById("txtValue").value;
+            alert("Element: "+ array[x] + " Add at index " + x);
+            x++;
+            document.getElementById("txtValue").value="";
+        }
+        function display_array() {
+            let e = "<hr/>";
+            for(let i = 0;i<array.length;i++){
+                e+="Element " + i + " = " + array[i] + "<br/>";
+            }
+            document.getElementById("result").innerHTML = e;
+        }
+    </script>
+</body>
+</html>
