@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caro Game</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>Caro Game</h3>
+    <table id="caroBoard"></table>
+
+    <script>
+        const rows = 6;
+        const cols = 6;
+        let currentPlayer = 'X'; // X starts
+
+        const caroBoard = document.getElementById("caroBoard");
+
+        // Initialize the board
+        const board = new Array(rows).fill(0).map(() => new Array(cols).fill('.'));
+
+        // Render the initial board
+        function renderBoard() {
+            caroBoard.innerHTML = '';
+
+            for (let i = 0; i < rows; i++) {
+                const row = document.createElement("tr");
+
+                for (let j = 0; j < cols; j++) {
+                    const cell = document.createElement("td");
+                    cell.textContent = board[i][j];
+                    cell.addEventListener("click", () => makeMove(i, j));
+                    row.appendChild(cell);
+                }
+
+                caroBoard.appendChild(row);
+            }
+        }
+
+        // Make a move on the board
+        function makeMove(i, j) {
+            if (board[i][j] === '.') {
+                board[i][j] = currentPlayer;
+                renderBoard();
+
+                if (checkWin(i, j)) {
+                    alert(`Player ${currentPlayer} wins!`);
+                    resetGame();
+                } else {
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                }
+            }
+        }
+
+        // Check for a win
+        function checkWin(i, j) {
+            return (
+                checkDirection(i, j, 1, 0) || // Horizontal
+                checkDirection(i, j, 0, 1) || // Vertical
+                checkDirection(i, j, 1, 1) || // Diagonal \
+                checkDirection(i, j, 1, -1)   // Diagonal /
+            );
+        }
+
+        // Check for a win in a specific direction
+        function checkDirection(i, j, di, dj) {
+            const player = board[i][j];
+            for (let step = 0; step < 3; step++) {
+                const ni = i + step * di;
+                const nj = j + step * dj;
+
+                if (ni < 0 || ni >= rows || nj < 0 || nj >= cols || board[ni][nj] !== player) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Reset the game
+        function resetGame() {
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    board[i][j] = '.';
+                }
+            }
+            currentPlayer = 'X';
+            renderBoard();
+        }
+
+        // Initial render
+        renderBoard();
+    </script>
+</body>
+</html>

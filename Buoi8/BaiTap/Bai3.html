@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Dien</title>
+</head>
+<body>
+    <h3>Tu Dien Tieng Anh</h3>
+    <input type="text" value="English" id="txtValue"/>
+    <input type="button" value="Translate" onclick="translate_Elements()" />
+    <hr>
+    <div id="result"></div>
+
+    <script>
+        const english = ["cat","dog","hello"];
+        const vietnamese = ["cho","xin chao","meo"];
+        function translate_Elements() {
+            let value = document.getElementById("txtValue").value;
+            let result_element = document.getElementById("result");
+            console.log("@@@value",value);
+            
+            for(let i = 0;i<english.length;i++){
+                if(value === "cat"){
+                    console.log("meo");
+                    result_element.innerText = "Meo"
+                    break;
+                }
+                else if(value == "dog") {
+                    console.log("cho");
+                    result_element.innerText = "Cho"
+                    break; 
+                }
+                else if(value == "hello") {
+                    console.log("xin chao");
+                    result_element.innerText = "Xin Chao"
+                    break; 
+                }
+                else{
+                    result_element.innerText = "Khong tim thay tu tieng anh nay`"
+                    console.log("Khong tim thay tu tieng anh nay`");
+                    break;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

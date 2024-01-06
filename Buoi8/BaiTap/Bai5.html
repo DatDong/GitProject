@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faking text area</title>
+    <style>
+        body {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+
+        textarea {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body le="margin: 0 auto;">
+    <div>
+        <h2 style="text-align: center;">Typing Anything Slowly</h2>
+        <textarea style="padding: 8px; font-size: 16px;" name="txt" cols="40" rows="10" oninput="handleInput();"></textarea>
+    </div>
+    
+    <script>
+        const typeTextarea = document.querySelector("textarea");
+        const textTyping = "Typing Anything Slowly";
+        function handleInput() {
+            const text_value = typeTextarea.value;
+            const textSlice = textTyping.slice(0,text_value.length);
+            
+            if(textTyping !== textSlice) {
+                typeTextarea.value = textSlice;
+            }
+
+            if(textSlice.length == textTyping.length){
+                setTimeout(() => {
+                    typeTextarea.value ="";
+                },2000)
+            }
+        }
+    </script>
+    
+</body>
+</html>
