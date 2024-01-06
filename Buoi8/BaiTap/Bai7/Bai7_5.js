@@ -1,14 +1,12 @@
-// const a = [1,2,3,4,5,6];
-// const b = [1,2,3,4,5,6];
-// if(a === b) {
-//     console.log("object");
-// }
+const a = [1, "asd", 2, 3, "sas", 4, 5, 6];
+const b = [1, "asd", 2, 3, "sas", 4, 5, 6];
 
-const chuoi1 = "Hello, World!";
-const chuoi2 = "Hello, World!";
-
-if (chuoi1 === chuoi2) {
-  console.log('Hai chuỗi giống nhau.');
-} else {
-  console.log('Hai chuỗi không giống nhau.');
+for (let i = 0; i < a.length; i++) {
+  if (a[i] !== b[i]) {
+    console.log("2 mang nay khac nhau");
+    break;
+  } else {
+    console.log("2 mang nay giong nhau");
+    break;
+  }
 }
