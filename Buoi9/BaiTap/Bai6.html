@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bai6</title>
+</head>
+<body>
+	<script>
+		function processConfirm(answer) {
+			let result = "";
+			if(answer){
+				result = "1";
+			}
+			else {
+				result = "2";
+			}
+			return result;
+		}
+		let confirmAnswer = confirm("Tiep tuc nha");
+		let theAnswer = processConfirm(confirmAnswer);
+		alert(theAnswer)
+	</script>
+</body>
+</html>

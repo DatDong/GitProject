@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai8</title>
+</head>
+<body>
+
+        <p>
+            hien thi ra ket qua nho nhat trong mang 1 : <span id="result1"></span>
+        </p>
+        <p>
+            hien thi ra ket qua nho nhat trong mang 2 : <span id="result2"></span>
+        </p>
+        <p>
+            hien thi ra ket qua nho nhat trong mang 3 : <span id="result3"></span>
+        </p>
+        <p>
+            hien thi ra ket qua nho nhat trong mang 4 : <span id="result4"></span>
+        </p>
+
+
+    <script>
+        // let result = "";
+        let arr1 = [3, 5, 1, 8, -3, 7, 8];
+        let minArr1 = findMin(arr1);
+        document.getElementById("result1").innerHTML = minArr1;
+        let arr2 = [7, 12, 6, 9, 20, 56, 89];
+        let minArr2 = findMin(arr2);
+        document.getElementById("result2").innerHTML = minArr2;
+        let arr3 = [];
+        let minArr3 = findMin(arr3);
+        document.getElementById("result3").innerHTML = minArr3;
+        let arr4 = [0, 0, 0, 0, 0, 0];
+        let minArr4 = findMin(arr4);
+        document.getElementById("result4").innerHTML = minArr4;
+
+        function findMin(arr) {
+            if(arr.length == 0){
+                return -1;
+            }
+            else{
+                let min =0;
+                for(let i =0;i<arr.length;i++){
+                    if(arr[i]<min){
+                        min = arr[i];
+                    }
+                }
+                return min;
+            }
+        }
+    </script>
+</body>
+</html>
