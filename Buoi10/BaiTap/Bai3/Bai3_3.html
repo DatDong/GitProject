@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai3_3</title>
+</head>
+<body>
+    <script>
+        function compareTwoNumber(number1,number2) {
+            if(number1 > number2){
+                document.write(`So thu nhat ${number1} lon hon so thu hai ${number2}`);
+            }
+            else if(number1  < number2){
+                let result = 0;
+                result = number1 + number2;
+                return result;
+            }
+            else {
+                document.write(`Số thứ nhất ${number1} bằng số thứ hai ${number2}`);
+            }
+        }
+
+        let resultCompare = compareTwoNumber(44,5);
+        if (resultCompare !== undefined) {
+            document.write(`<br>Tổng của hai số là: ${resultCompare}`);
+        }
+    </script>
+</body>
+</html>

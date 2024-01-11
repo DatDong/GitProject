@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiem tra so nguyen to</title>
+</head>
+<body>
+    <div>
+        <p>Kiem tra so nguyen to</p>
+        <input type="number" placeholder="Prime" id="inputPrime" oninput="checkIsPrime(this.value)" onchange="checkIsPrime(this.value)">
+        <p>
+            Hien thi ket qua co phai so nguyen to hay khong === <span id="outputIsPrime"></span>
+        </p>
+    </div>
+
+    <script>
+        function isPrime(number){
+            if(number <= 1){
+                return false;
+            }
+            for(let i=2;i<= Math.sqrt(number);i++){
+                if(number%i == 0){
+                    return false;
+                }
+            }
+            return true;
+        }
+        function checkIsPrime(value){
+            let number = parseInt(value);
+            if(isPrime(number)){
+                document.getElementById("outputIsPrime").innerHTML = "Là số nguyên tố.";
+            }
+            else {
+                document.getElementById("outputIsPrime").innerHTML = "Khong là số nguyên tố.";
+    
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai2</title>
+</head>
+<body>
+    <div>
+        <p>Convert Feet to Meters:</p>
+        <input type="number" placeholder="Feet" id="inputFeet" oninput="displayConversionResults('feet')">
+        <p>Result in Meters: <span id="resultMeters"></span></p>
+    </div>
+
+    <div>
+        <p>Convert Meters to Feet:</p>
+        <input type="number" placeholder="Meters" id="inputMeters" oninput="displayConversionResults('meters')">
+        <p>Result in Feet: <span id="resultFeet"></span></p>
+    </div>
+
+    <script>
+        function feetToMeters(feet) {
+            let inputFeet = parseFloat(feet);
+            return 0.305 * inputFeet;
+        }
+
+        function metersToFeet(meters) {
+            let inputMeters = parseFloat(meters);
+            return 3.279 * inputMeters;
+        }
+
+        function displayConversionResults(unit) {
+            if (unit === 'feet') {
+                let inputFeet = document.getElementById("inputFeet").value;
+                let resultMeters = feetToMeters(inputFeet);
+                document.getElementById("resultMeters").innerHTML = resultMeters.toFixed(2) + " meters";
+            } else if (unit === 'meters') {
+                let inputMeters = document.getElementById("inputMeters").value;
+                let resultFeet = metersToFeet(inputMeters);
+                document.getElementById("resultFeet").innerHTML = resultFeet.toFixed(2) + " feet";
+            }
+        }
+    </script>
+</body>
+</html>

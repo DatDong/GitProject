@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai4 _ QuanLiUngDung</title>
+    <link rel="stylesheet" href="./sheet/main.css">
+</head>
+<body>
+    <div>
+        <h3 style="margin: 0; padding-bottom: 4px ;">Add New Product</h3>
+        <div class="container_addProduct">
+            <input type="text" placeholder="New Product" class="txtProduct" id="txtProduct">
+            <input type="submit" value="Add" class="btnAdd" onclick="addProduct()">
+        </div>
+        <h3 style="margin: 0; padding: 4px 0 ;">
+            Display All Product
+        </h3>
+        <div class="container_product">
+            <p>Product Name</p>
+            <p><span id="countProduct" style="color: red; font-size: 18px;">0</span></p>
+        </div>
+        <div class="container_table">
+            <table border="1" style="width:260px;">
+                <tr>
+                    <th>Product</th>
+                    <th>Chinh sua</th>
+                    <th>Xoa</th>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <script src="./sheet/main.js"></script>
+</body>
+</html>

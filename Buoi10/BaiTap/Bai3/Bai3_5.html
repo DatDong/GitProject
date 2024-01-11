@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bai 3_5</title>
+  </head>
+  <body>
+    <script>
+      var stars = [
+        "Polaris",
+        "Aldebaran",
+        "Deneb",
+        "Vega",
+        "Altair",
+        "Dubhe",
+        "Regulus",
+      ];
+      var constellations = [
+        "Ursa Minor",
+        "Taurus",
+        "Cygnus",
+        "Lyra",
+        "Aquila",
+        "Ursa Major",
+        "Leo",
+      ];
+
+      function findConstllations(starsName) {
+        for (let i = 0; i < stars.length; i++) {
+          if (stars[i] == starsName) {
+            return constellations[i];
+          }
+        }
+        return null;
+      }
+      let userInput = prompt("Nhap ngoi can kiem thuoc chom sao nao` ???");
+      let result = findConstllations(userInput);
+      if (result !== null) {
+        document.write(`Ngoi sao ${userInput} thuoc chom sao ${result}`);
+      } else {
+        document.write("Khong tim thay chom sao cua ngoi sao do");
+      }
+    </script>
+  </body>
+</html>
